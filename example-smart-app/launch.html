@@ -20,13 +20,13 @@
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
     <script>
       
-      (function(window){
+      $(function() {
+        alert('Hello');
         
-          $('#FHIRurl').innerText ("test");
-          $('#LaunchToken').innerText ("test");          
+        $('#FHIRurl').innerText ("test");
+        $('#LaunchToken').innerText ("test");         
         
-      })(window);
-      
+      });           
      
       function Launch()
       {
