@@ -17,19 +17,48 @@
 
     <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
     <!-- https://github.com/cerner/fhir-client-cerner-additions -->
-    <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>    
+    <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
       
+      function Launch()
+      {
         FHIR.oauth2.authorize({
-          'client_id': 'dd50223d-6b0d-4c1a-9631-a67b551750a7',
+          'client_id': '1cc2852b-2c5d-4ab6-8dc6-8945c37c2ec2',
           'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
-        }); 
+        });
+      } 
+      
+      function GetURLParameter(sParam)
+      {
+          var sPageURL = window.location.search.substring(1);
+          var sURLVariables = sPageURL.split('&');
+          for (var i = 0; i < sURLVariables.length; i++) 
+          {
+              var sParameterName = sURLVariables[i].split('=');
+              if (sParameterName[0] == sParam) 
+              {
+                  return sParameterName[1];
+              }
+          }
+      }
+      
+      // On Document Ready
+     $(function() {
+                
+        var iss = decodeURI(GetURLParameter('iss'));
+        var launch = GetURLParameter('launch'); 
+       
+        alert('URL: ' + iss);
+        alert('Token: ' + launch);        
+    });           
       
     </script>
     <div class="spinner">
       <div class="bounce1"></div>
       <div class="bounce2"></div>
       <div class="bounce3"></div>      
-    </div> 
+    </div>    
+    <div>This is a sample launch page. Click <a href="javascript:Launch();">here</a> to continue...</div>    
   </body>
 </html>
