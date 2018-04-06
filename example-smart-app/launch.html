@@ -22,25 +22,9 @@
     <script>
       
       $(function() {
-        
-        var splitUrl = function() {
-          var vars = [], hash;
-          var url = document.URL.split('?')[0];
-          var p = document.URL.split('?')[1];
-          if(p != undefined){
-              p = p.split('&');
-              for(var i = 0; i < p.length; i++){
-                  hash = p[i].split('=');
-                  vars.push(hash[1]);
-                  vars[hash[0]] = hash[1];
-              }
-          }
-          vars['url'] = url;
-          return vars;
-        };
-        
-        var url = vars['iss'];
-        var token = vars['token']; 
+                
+        var url = GetURLParameter('iss');
+        var token = GetURLParameter('token'); 
         
         $('#FHIRurl').text (url);
         $('#LaunchToken').text (token);
@@ -54,6 +38,20 @@
           'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
         });
       } 
+      
+      function GetURLParameter(sParam)
+      {
+          var sPageURL = window.location.search.substring(1);
+          var sURLVariables = sPageURL.split('&');
+          for (var i = 0; i < sURLVariables.length; i++) 
+          {
+              var sParameterName = sURLVariables[i].split('=');
+              if (sParameterName[0] == sParam) 
+              {
+                  return sParameterName[1];
+              }
+          }
+      }
       
     </script>
     <div class="spinner">
