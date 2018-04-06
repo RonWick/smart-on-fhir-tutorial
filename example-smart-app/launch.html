@@ -46,11 +46,11 @@
       // On Document Ready
      $(function() {
                 
-        var url = GetURLParameter('iss');
-        var token = GetURLParameter('launch'); 
+        var iss = GetURLParameter('iss');
+        var launch = GetURLParameter('launch'); 
         
-        $('#FHIRurl').text(url);
-        $('#LaunchToken').text(token);        
+        $('#FHIRurl').text(iss);
+        $('#LaunchToken').text(launch);        
     });           
       
     </script>
