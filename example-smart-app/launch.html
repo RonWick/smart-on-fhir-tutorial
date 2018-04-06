@@ -46,7 +46,7 @@
       // On Document Ready
      $(function() {
                 
-        var iss = GetURLParameter('iss');
+        var iss = decodeURI(GetURLParameter('iss'));
         var launch = GetURLParameter('launch'); 
         
         $('#FHIRurl').text(iss);
