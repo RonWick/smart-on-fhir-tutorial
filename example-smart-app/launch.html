@@ -49,11 +49,8 @@
         var iss = decodeURI(GetURLParameter('iss'));
         var launch = GetURLParameter('launch'); 
        
-        alert(iss);
-        alert(launch);
-        
-        $('#FHIRurl').text(iss);
-        $('#LaunchToken').text(launch);        
+        alert('URL: ' + iss);
+        alert('Token: " + launch);        
     });           
       
     </script>
@@ -61,13 +58,7 @@
       <div class="bounce1"></div>
       <div class="bounce2"></div>
       <div class="bounce3"></div>      
-    </div>
-    <div></div>
-    <div>This is a sample launch page. Click <a href="javascript:Launch();">here</a> to continue...</div>
-    <hr>
-    <div>
-      FHIR URL: <label id="FHIRurl" /><br>
-      Launch Token: <label id="LaunchToken" /><br>
-    </div>
+    </div>    
+    <div>This is a sample launch page. Click <a href="javascript:Launch();">here</a> to continue...</div>    
   </body>
 </html>
