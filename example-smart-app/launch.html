@@ -22,11 +22,10 @@
     <script>
       
       $(function() {
-        alert('Hello');
-        
-        $('#FHIRurl').innerText ("test");
-        $('#LaunchToken').innerText ("test");         
-        
+        var url = $(document).getUrlParam("ssi");
+        var token = $(document).getUrlParam("token");        
+        $('#FHIRurl').text (url);
+        $('#LaunchToken').text (token);
       });           
      
       function Launch()
