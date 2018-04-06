@@ -22,10 +22,29 @@
     <script>
       
       $(function() {
-        var url = $(document).getUrlParam("iss");
-        var token = $(document).getUrlParam("token");        
+        
+        var splitUrl = function() {
+          var vars = [], hash;
+          var url = document.URL.split('?')[0];
+          var p = document.URL.split('?')[1];
+          if(p != undefined){
+              p = p.split('&');
+              for(var i = 0; i < p.length; i++){
+                  hash = p[i].split('=');
+                  vars.push(hash[1]);
+                  vars[hash[0]] = hash[1];
+              }
+          }
+          vars['url'] = url;
+          return vars;
+        };
+        
+        var url = vars['iss'];
+        var token = vars['token']; 
+        
         $('#FHIRurl').text (url);
         $('#LaunchToken').text (token);
+        
       });           
      
       function Launch()
@@ -34,7 +53,7 @@
           'client_id': '1cc2852b-2c5d-4ab6-8dc6-8945c37c2ec2',
           'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
         });
-      }     
+      } 
       
     </script>
     <div class="spinner">
