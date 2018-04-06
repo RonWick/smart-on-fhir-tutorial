@@ -21,16 +21,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
       
-      $(function() {
-                
-        var url = GetURLParameter('iss');
-        var token = GetURLParameter('token'); 
-        
-        $('#FHIRurl').text (url);
-        $('#LaunchToken').text (token);
-        
-      });           
-     
       function Launch()
       {
         FHIR.oauth2.authorize({
@@ -52,6 +42,16 @@
               }
           }
       }
+      
+      // On Document Ready
+     $(function() {
+                
+        var url = GetURLParameter('iss');
+        var token = GetURLParameter('token'); 
+        
+        $('#FHIRurl').text (url);
+        $('#LaunchToken').text (token);        
+    });           
       
     </script>
     <div class="spinner">
